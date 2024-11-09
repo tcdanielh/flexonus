@@ -477,6 +477,7 @@ GameObject:
   - component: {fileID: 5028403856070576288}
   - component: {fileID: 8061718797286052788}
   - component: {fileID: 128410717632050127}
+  - component: {fileID: 6714032316202405159}
   m_Layer: 0
   m_Name: PlaceholderBolt
   m_TagString: Untagged
@@ -570,6 +571,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6714032316202405159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6718903618253218114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25acbbad1c044428aad1f063e1c2d0ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  continuousDamage: 0
 --- !u!1 &7100309687481232533
 GameObject:
   m_ObjectHideFlags: 0

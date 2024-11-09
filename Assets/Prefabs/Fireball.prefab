@@ -9697,9 +9697,10 @@ GameObject:
   - component: {fileID: 6858621355554567045}
   - component: {fileID: 1008977684627234311}
   - component: {fileID: 1493768907594864417}
+  - component: {fileID: 299766477699577637}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14581,6 +14582,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7285001, y: 0.8288606, z: 0.72326213}
   m_Center: {x: 0.0050873756, y: 0.061428785, z: -0.036678433}
+--- !u!114 &299766477699577637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953953219192718213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25acbbad1c044428aad1f063e1c2d0ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  continuousDamage: 5
 --- !u!1 &6186251406963368839
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject FireCracker;
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
+        if (collision.transform.tag == "hittable"){
+            GameObject fireCracker = Instantiate(FireCracker, transform.position, transform.rotation);
+
+            //fireCracker.GetComponent<Rigidbody>().velocity = transform.gameObject.GetComponent<Rigidbody>().velocity;
+
+            Destroy(transform.gameObject);
+        }
         
     }
 }
