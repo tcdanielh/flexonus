@@ -78,7 +78,7 @@ public class Fracture : NetworkBehaviour
             //ShatterObject();
             if (!IsServer)
             {
-                DisappearCoroutineClientRpc();
+                DisappearCoroutineServerRpc();
             }
             else
             {
