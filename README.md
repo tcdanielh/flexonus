@@ -1,6 +1,6 @@
+Used ChatGPT/GitHub co-pilot for coding assistance.
 
-
-Asset Store:
+Meta Packages:
 Meta - Voice SDK - Immersive Voice Commands
 Meta MR Utility Kit
 Meta XR All-in-One SDK
@@ -19,3 +19,6 @@ Autodesk FBX SDK for Unity
 Lobby
 Netcode For GameObject
 Oculus XR Plugin
+
+$P Point-Cloud Recognizer https://github.com/DaVikingCode/PDollar-Unity
+some sound effects from https://pixabay.com/
