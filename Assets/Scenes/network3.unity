@@ -10451,7 +10451,7 @@ PrefabInstance:
       objectReference: {fileID: 1057720375}
     - target: {fileID: 865022190635526368, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
       propertyPath: spells.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 865022190635526368, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
       propertyPath: spells.Array.data[0]
@@ -10460,7 +10460,11 @@ PrefabInstance:
     - target: {fileID: 865022190635526368, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
       propertyPath: spells.Array.data[1]
       value: 
-      objectReference: {fileID: 987018431708427884, guid: 46e64b232635242f4a02d191cdf44376, type: 3}
+      objectReference: {fileID: 3756323465628659073, guid: 061967104e8994818bb2fb1aa33bfb24, type: 3}
+    - target: {fileID: 865022190635526368, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
+      propertyPath: spells.Array.data[2]
+      value: 
+      objectReference: {fileID: 6692732968845351556, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
     - target: {fileID: 8543932901944099974, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10555,7 +10559,8 @@ MonoBehaviour:
         m_CallState: 2
   spells:
   - {fileID: 5953953219192718213, guid: ad8613917982a46fca9379133fe07910, type: 3}
-  - {fileID: 987018431708427884, guid: 46e64b232635242f4a02d191cdf44376, type: 3}
+  - {fileID: 3756323465628659073, guid: 061967104e8994818bb2fb1aa33bfb24, type: 3}
+  - {fileID: 6692732968845351556, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
 --- !u!114 &986820832 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 865022190635526368, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
@@ -17519,6 +17524,8 @@ GameObject:
   - component: {fileID: 1703852047}
   - component: {fileID: 1703852046}
   - component: {fileID: 1703852049}
+  - component: {fileID: 1703852051}
+  - component: {fileID: 1703852050}
   m_Layer: 0
   m_Name: Capsule (1)
   m_TagString: Untagged
@@ -17641,6 +17648,49 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1703852050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703852044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1703852051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703852044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &1710237287
 GameObject:
   m_ObjectHideFlags: 0
@@ -17654,6 +17704,8 @@ GameObject:
   - component: {fileID: 1710237290}
   - component: {fileID: 1710237289}
   - component: {fileID: 1710237292}
+  - component: {fileID: 1710237294}
+  - component: {fileID: 1710237293}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -17776,6 +17828,49 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1710237293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710237287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1710237294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710237287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96cb6065543e43c4a752faaa1468eb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseUnreliableDeltas: 0
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 1
+  SyncScaleY: 1
+  SyncScaleZ: 1
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
 --- !u!1 &1710678294
 GameObject:
   m_ObjectHideFlags: 0

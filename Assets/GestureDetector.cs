@@ -198,6 +198,12 @@ public class MovementRecognizer : NetworkBehaviour
         Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
         InstantiateSpell(spells[1], spawnPosition, chestSource.rotation);
     }
+    public void WallSpawn()
+    {
+        Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
+        spawnPosition.y = spawnPosition.y / 2;
+        InstantiateSpell(spells[2], spawnPosition, Quaternion.identity);
+    }
     public void SpawnSpell(string gestureName)
     {
         Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
@@ -209,7 +215,7 @@ public class MovementRecognizer : NetworkBehaviour
             LightSpawn();
         } else if (gestureName == "E")
         {
-            
+            WallSpawn();
         } else if (gestureName == "N")
         {
             
