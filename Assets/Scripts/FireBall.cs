@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class FireBall : MonoBehaviour
@@ -10,7 +11,16 @@ public class FireBall : MonoBehaviour
     {
         if (other.transform.tag == "hittable"){
             GameObject fireCracker = Instantiate(FireCracker, transform.position, transform.rotation);
+            fireCracker.GetComponent<NetworkObject>().Spawn();
+            //fireCracker.GetComponent<Rigidbody>().velocity = transform.gameObject.GetComponent<Rigidbody>().velocity;
+            Destroy(transform.gameObject);
+            // if other.gameObject.GetComponent<h>()
+        }
 
+        if (other.gameObject.name.EndsWith("EffectMesh"))
+        {
+            GameObject fireCracker = Instantiate(FireCracker, transform.position, transform.rotation);
+            fireCracker.GetComponent<NetworkObject>().Spawn();
             //fireCracker.GetComponent<Rigidbody>().velocity = transform.gameObject.GetComponent<Rigidbody>().velocity;
 
             Destroy(transform.gameObject);
@@ -21,7 +31,16 @@ public class FireBall : MonoBehaviour
     {
         if (other.transform.tag == "hittable"){
             GameObject fireCracker = Instantiate(FireCracker, transform.position, transform.rotation);
+            fireCracker.GetComponent<NetworkObject>().Spawn();
+            //fireCracker.GetComponent<Rigidbody>().velocity = transform.gameObject.GetComponent<Rigidbody>().velocity;
 
+            Destroy(transform.gameObject);
+        }
+        
+        if (other.gameObject.name.EndsWith("EffectMesh"))
+        {
+            GameObject fireCracker = Instantiate(FireCracker, transform.position, transform.rotation);
+            fireCracker.GetComponent<NetworkObject>().Spawn();
             //fireCracker.GetComponent<Rigidbody>().velocity = transform.gameObject.GetComponent<Rigidbody>().velocity;
 
             Destroy(transform.gameObject);
