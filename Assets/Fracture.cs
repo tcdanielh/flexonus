@@ -11,7 +11,15 @@ public class Fracture : NetworkBehaviour
 
     private void Start()
     {
-        IsKenObject(fracturedObject);
+        foreach (Transform ch in this.transform)
+        {
+            Rigidbody rb = ch.GetComponent<Rigidbody>();
+            if (rb)
+            {
+                rb.isKinematic = true;
+            }
+        }
+        
     }
 
     //
@@ -48,8 +56,7 @@ public class Fracture : NetworkBehaviour
         if (collision.transform.CompareTag("attack"))
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            fracturedObject.SetActive(true);
-            ShatterObject(fracturedObject);
+            ShatterObject();
             StartCoroutine(Disappear());
         }
     }
@@ -58,18 +65,15 @@ public class Fracture : NetworkBehaviour
         if (collision.transform.CompareTag("attack"))
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
-            fracturedObject.SetActive(true);
-            ShatterObject(fracturedObject);
+            ShatterObject();
             StartCoroutine(Disappear());
         }
     }
 
-    void ShatterObject(GameObject fracturedObject)
+    void ShatterObject()
     {
-        fracturedObject.SetActive(true);
-
         // Apply forces to each piece of the fractured object
-        foreach (Transform piece in fracturedObject.transform)
+        foreach (Transform piece in this.transform)
         {
             Rigidbody rb = piece.GetComponent<Rigidbody>();
             
@@ -85,21 +89,6 @@ public class Fracture : NetworkBehaviour
         }
     }
 
-    void IsKenObject(GameObject fracturedObject)
-    {
-        fracturedObject.SetActive(true);
-
-        // Apply forces to each piece of the fractured object
-        foreach (Transform piece in fracturedObject.transform)
-        {
-            Rigidbody rb = piece.GetComponent<Rigidbody>();
-            
-            if (rb != null)
-            {
-                rb.isKinematic = true;
-            }
-        }
-    }
 
     IEnumerator Disappear()
     {
