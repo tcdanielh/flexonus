@@ -10,7 +10,7 @@ public class Lightning : MonoBehaviour
     {
         if (other.transform.CompareTag("hittable"))
         {
-            zap = Instantiate(Zap, transform.position, transform.rotation);
+            zap = Instantiate(Zap, transform.position, Quaternion.Euler(new Vector3(0,0,0)));
             StartCoroutine(WaitToEnd(1f, zap));
             Destroy(transform.parent.GetChild(0).gameObject);
             Destroy(transform.parent.GetChild(1).gameObject);
