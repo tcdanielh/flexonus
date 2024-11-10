@@ -224,8 +224,8 @@ public class MovementRecognizer : NetworkBehaviour
     public void WallSpawn()
     {
         Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
-        spawnPosition.y = spawnPosition.y / 2;
-        InstantiateSpell(spells[2], spawnPosition, Quaternion.identity);
+        spawnPosition.y = spawnPosition.y / 2.4f;
+        InstantiateSpell(spells[2], spawnPosition, chestSource.rotation);
     }
     public void SpawnSpell(string gestureName)
     {
