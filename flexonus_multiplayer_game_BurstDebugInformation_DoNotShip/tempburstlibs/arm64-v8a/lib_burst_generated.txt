@@ -1,4 +1,4 @@
-Library: /Users/yeonwooson/Desktop/flexonus/Temp/BurstOutput/tempburstlibs/arm64-v8a/lib_burst_generated
+Library: /Users/seonghyunpark/All/Side Projects/immersivebay/flexonus/Temp/BurstOutput/tempburstlibs/arm64-v8a/lib_burst_generated
 --platform=Android
 --backend=burst-llvm-16
 --target=ARMV8A_AARCH64
@@ -61,11 +61,11 @@ Library: /Users/yeonwooson/Desktop/flexonus/Temp/BurstOutput/tempburstlibs/arm64
 --assembly-defines=Unity.XR.Oculus;
 --assembly-defines=UnityEngine;
 --generate-link-xml=Temp/burst.link.xml
---temp-folder=/Users/yeonwooson/Desktop/flexonus/Temp/Burst
+--temp-folder=/Users/seonghyunpark/All/Side Projects/immersivebay/flexonus/Temp/Burst
 --debug=Full
 --key-folder=/Applications/Unity/Hub/Editor/2022.3.29f1/PlaybackEngines/AndroidPlayer
---decode-folder=/Users/yeonwooson/Desktop/flexonus/Library/Burst
---output=/Users/yeonwooson/Desktop/flexonus/Temp/BurstOutput/tempburstlibs/arm64-v8a/lib_burst_generated
+--decode-folder=/Users/seonghyunpark/All/Side Projects/immersivebay/flexonus/Library/Burst
+--output=/Users/seonghyunpark/All/Side Projects/immersivebay/flexonus/Temp/BurstOutput/tempburstlibs/arm64-v8a/lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
 
 --method=Unity.Burst.BurstCompiler+BurstCompilerHelper, Unity.Burst, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::IsBurstEnabled()--8c2be93e18276203cbd918daa2748a10
