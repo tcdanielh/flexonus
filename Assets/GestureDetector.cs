@@ -175,11 +175,11 @@ public class MovementRecognizer : NetworkBehaviour
     }
     
     [ServerRpc(RequireOwnership = false)]
-    private void InstantiateSpellServerRpc(GameObject spell, Vector3 pos, Quaternion rot)
+    private void InstantiateSpellServerRpc(int spelli, Vector3 pos, Quaternion rot)
     {
         
         // Instantiate and spawn logic
-        GameObject spellInstance = Instantiate(spell, pos, rot);
+        GameObject spellInstance = Instantiate(spells[spelli], pos, rot);
         NetworkObject networkObject = spellInstance.GetComponent<NetworkObject>();
         if (networkObject != null)
         {
@@ -206,14 +206,14 @@ public class MovementRecognizer : NetworkBehaviour
         if (!IsServer)
         {
             Debug.Log("Client is sending RequestSpellSpawnServerRpc.");
-            InstantiateSpellServerRpc(spells[0], spawnPosition, chestSource.rotation);
+            InstantiateSpellServerRpc(0, spawnPosition, chestSource.rotation);
         }
         else
         {
             Debug.Log("Server is executing FireBallSpawnClientRpc.");
             InstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
         }
-        InstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
+        
     }
     
     public void LightSpawn()
