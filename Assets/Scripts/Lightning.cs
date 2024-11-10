@@ -42,13 +42,15 @@ public class Lightning : NetworkBehaviour
         if (other.transform.CompareTag("hittable"))
         {
             StartCoroutine(WaitToEnd(1f, zap));
-            Destroy(transform.gameObject);
             ZapSpawn();
+            Destroy(transform.gameObject);
+            
         }
         if (other.gameObject.name.EndsWith("EffectMesh"))
         {
         
             StartCoroutine(WaitToEnd(1f, zap));
+            ZapSpawn();
             Destroy(transform.gameObject);
             
         }
@@ -59,14 +61,16 @@ public class Lightning : NetworkBehaviour
         if (other.transform.CompareTag("hittable"))
         {
             StartCoroutine(WaitToEnd(1f, zap));
-            Destroy(transform.gameObject);
             ZapSpawn();
+            Destroy(transform.gameObject);
+            
         }
         
         if (other.gameObject.name.EndsWith("EffectMesh"))
         {
         
             StartCoroutine(WaitToEnd(1f, zap));
+            ZapSpawn();
             Destroy(transform.gameObject);
 
         }
