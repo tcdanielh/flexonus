@@ -85,13 +85,13 @@ public class Health : NetworkBehaviour
     void TakeDamageServerRpc(int damage)
     {
         hp.Value -= damage;
-        UpdateHealth(hp.Value);
+        // UpdateHealth(hp.Value);
     }
     [ClientRpc(RequireOwnership = false)]
     void TakeDamageClientRpc(int damage)
     {
         hp.Value -= damage;
-        UpdateHealth(hp.Value);
+        // UpdateHealth(hp.Value);
     }
     
     [ServerRpc(RequireOwnership = false)]
@@ -111,6 +111,7 @@ public class Health : NetworkBehaviour
     // }
     void Update(){
         if (hp.Value <= 0) {
+            healthBar.fillAmount = (float)hp.Value / (float)100;
             //gameFlowManager.gameOver();
         }
     }
