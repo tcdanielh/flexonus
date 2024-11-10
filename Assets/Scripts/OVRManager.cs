@@ -19,5 +19,11 @@ public class OVRManager : NetworkBehaviour
         {
             move.LightSpawn();
         }
+        
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            move.WallSpawn();
+        }
+        
     }
 }
