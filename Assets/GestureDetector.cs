@@ -176,8 +176,8 @@ public class MovementRecognizer : MonoBehaviour
     {
         if (gestureName == "F")
         {
-            spells[0].SetActive(true);
-            // GameObject spell = Instantiate(spells[0], movementSource.position, Quaternion.identity);
+            // spells[0].SetActive(true);
+            GameObject spell = Instantiate(spells[0], movementSource.position, Quaternion.identity);
             // spell.transform.SetParent(movementSource);
         } else if (gestureName == "L")
         {
