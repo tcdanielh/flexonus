@@ -10506,11 +10506,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 721107410376066159, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 986820831}
+      insertIndex: 1
+      addedObject: {fileID: 986820834}
     - targetCorrespondingSourceObject: {fileID: 721107410376066159, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 986820834}
+      addedObject: {fileID: 986820831}
   m_SourcePrefab: {fileID: 100100000, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
 --- !u!1 &986820830 stripped
 GameObject:
@@ -10556,6 +10556,17 @@ MonoBehaviour:
   spells:
   - {fileID: 5953953219192718213, guid: ad8613917982a46fca9379133fe07910, type: 3}
   - {fileID: 987018431708427884, guid: 46e64b232635242f4a02d191cdf44376, type: 3}
+--- !u!114 &986820832 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 865022190635526368, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
+  m_PrefabInstance: {fileID: 986820829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986820830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223e397b5996048bbaf26b9d7f4fbeaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &986820834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14380,6 +14391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325240272}
+  - component: {fileID: 1325240273}
   - component: {fileID: 1325240271}
   m_Layer: 0
   m_Name: Debug
@@ -14400,7 +14412,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ae5bc60803a47cabe02c270b284261, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestPos: {fileID: 0}
+  chestPos: {fileID: 279957173}
+  move: {fileID: 986820832}
 --- !u!4 &1325240272
 Transform:
   m_ObjectHideFlags: 0
@@ -14416,6 +14429,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1325240273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325240270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3433569431
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1330030664
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using System.IO;
 using Unity.Netcode;
 using UnityEngine.Events;
 
-public class MovementRecognizer : MonoBehaviour
+public class MovementRecognizer : NetworkBehaviour
 {
     public Transform movementSource;
 
@@ -173,21 +173,40 @@ public class MovementRecognizer : MonoBehaviour
                 Destroy(Instantiate(debugCubePrefab, movementSource.position, Quaternion.identity), 3);
         }
     }
-
+    
     private void InstantiateSpell(GameObject spell, Vector3 pos, Quaternion rot)
     {
-        Instantiate(spell, pos, rot);
-        spell.GetComponent<NetworkObject>().Spawn();
+        
+        // Instantiate and spawn logic
+        GameObject spellInstance = Instantiate(spell, pos, rot);
+        NetworkObject networkObject = spellInstance.GetComponent<NetworkObject>();
+        if (networkObject != null)
+        {
+            networkObject.Spawn();
+        }
+    
+    }
+
+    public void FireBallSpawn()
+    {
+        Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
+        InstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
+    }
+    
+    public void LightSpawn()
+    {
+        Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
+        InstantiateSpell(spells[1], spawnPosition, chestSource.rotation);
     }
     public void SpawnSpell(string gestureName)
     {
         Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
         if (gestureName == "F")
         {
-            InstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
+            FireBallSpawn();
         } else if (gestureName == "L")
         {
-            InstantiateSpell(spells[1], spawnPosition, chestSource.rotation);
+            LightSpawn();
         } else if (gestureName == "E")
         {
             
