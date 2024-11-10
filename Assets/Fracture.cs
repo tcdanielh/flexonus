@@ -99,8 +99,9 @@ public class Fracture : NetworkBehaviour
 
     IEnumerator DisappearCoroutine()
     {
-        //yield return new WaitForSeconds(4f);
+       
         
         Destroy(gameObject);
+        yield return new WaitForSeconds(0.1f);
     }
 }
