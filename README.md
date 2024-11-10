@@ -21,4 +21,6 @@ Netcode For GameObject
 Oculus XR Plugin
 
 $P Point-Cloud Recognizer https://github.com/DaVikingCode/PDollar-Unity
-some sound effects from https://pixabay.com/
+some sound effects from https://pixabay.com/ and Leohpaz RPG Essentials
+
+magic effects from Hovl Studio
