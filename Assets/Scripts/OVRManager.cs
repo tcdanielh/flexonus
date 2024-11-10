@@ -12,7 +12,7 @@ public class OVRManager : NetworkBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-                move.FireBallSpawn();
+            move.FireBallSpawn();
         }
 
         if (Input.GetKeyDown(KeyCode.S))

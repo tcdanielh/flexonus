@@ -193,9 +193,14 @@ public class MovementRecognizer : NetworkBehaviour
         // Instantiate and spawn logic
         GameObject spellInstance = Instantiate(spell, pos, rot);
         NetworkObject networkObject = spellInstance.GetComponent<NetworkObject>();
+        Debug.Log(spellInstance.name + " " + spellInstance.transform.position + " " + (networkObject == null) + " ");
         if (networkObject != null)
         {
             networkObject.Spawn();
+        }
+        else
+        {
+            Debug.LogError("NetworkObject component is missing on the instantiated spell instance.");
         }
     
     }
@@ -243,7 +248,7 @@ public class MovementRecognizer : NetworkBehaviour
         }
         else
         {
-            Debug.Log("Server is executing FireBallSpawnClientRpc.");
+            Debug.Log("Server is executing WallBallSpawnClientRpc.");
             InstantiateSpell(spells[2], spawnPosition, chestSource.rotation);
         }
     }

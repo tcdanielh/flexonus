@@ -19,7 +19,6 @@ public class Lightning : NetworkBehaviour
     }
     private void InstantiateZap()
     {
-        
         GameObject temp = Instantiate(zap, transform.position, transform.rotation);
         temp.GetComponent<NetworkObject>().Spawn();
         Destroy(transform.gameObject);
@@ -28,18 +27,14 @@ public class Lightning : NetworkBehaviour
 
     public void ZapSpawn()
     {
-        
         if (!IsServer)
         {
-            
             InstantiateZapServerRpc();
         }
         else
         {
-            
             InstantiateZap();
         }
-        
     }
     
     void OnTriggerEnter(Collider other)
