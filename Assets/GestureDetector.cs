@@ -33,6 +33,8 @@ public class MovementRecognizer : MonoBehaviour
     public class UnityStringEvent : UnityEvent<string> { }
     public UnityStringEvent OnRecognized;
 
+    public List<GameObject> spells;
+
     private List<Gesture> trainingSet = new List<Gesture>();
     private bool isMoving = false;
     private List<Vector3> positionsList = new List<Vector3>();
@@ -149,7 +151,7 @@ public class MovementRecognizer : MonoBehaviour
         else
         {
             Result result = PointCloudRecognizer.Classify(newGesture, trainingSet.ToArray());
-            Debug.Log(result.GestureClass + result.Score);
+            Debug.Log("RECOGNIZED GESTURE: " + result.GestureClass + " " + result.Score);
             if(result.Score > recognitionThreshold)
             {
                 OnRecognized.Invoke(result.GestureClass);
@@ -167,6 +169,25 @@ public class MovementRecognizer : MonoBehaviour
             positionsList.Add(movementSource.position);
             if (debugCubePrefab)
                 Destroy(Instantiate(debugCubePrefab, movementSource.position, Quaternion.identity), 3);
+        }
+    }
+
+    public void SpawnSpell(string gestureName)
+    {
+        if (gestureName == "F")
+        {
+            spells[0].SetActive(true);
+            // GameObject spell = Instantiate(spells[0], movementSource.position, Quaternion.identity);
+            // spell.transform.SetParent(movementSource);
+        } else if (gestureName == "L")
+        {
+            
+        } else if (gestureName == "E")
+        {
+            
+        } else if (gestureName == "N")
+        {
+            
         }
     }
 }
