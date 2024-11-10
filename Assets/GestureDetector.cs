@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.XR;
 using PDollarGestureRecognizer;
 using System.IO;
+using Unity.Netcode;
 using UnityEngine.Events;
 
 public class MovementRecognizer : MonoBehaviour
 {
     public Transform movementSource;
 
+    public Transform chestSource;
     // public HandPoseDetector detector;
     public HandType hand;
 
@@ -172,16 +174,20 @@ public class MovementRecognizer : MonoBehaviour
         }
     }
 
+    private void InstantiateSpell(GameObject spell, Vector3 pos, Quaternion rot)
+    {
+        Instantiate(spell, pos, rot);
+        spell.GetComponent<NetworkObject>().Spawn();
+    }
     public void SpawnSpell(string gestureName)
     {
+        Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
         if (gestureName == "F")
         {
-            // spells[0].SetActive(true);
-            GameObject spell = Instantiate(spells[0], movementSource.position, Quaternion.identity);
-            // spell.transform.SetParent(movementSource);
+            InstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
         } else if (gestureName == "L")
         {
-            
+            InstantiateSpell(spells[1], spawnPosition, chestSource.rotation);
         } else if (gestureName == "E")
         {
             
