@@ -17,7 +17,9 @@ public class Lightning : NetworkBehaviour
         Destroy(transform.gameObject);
     
     }
-    private void InstantiateZap()
+    
+    [ClientRpc(RequireOwnership = false)]
+    private void InstantiateZapClientRpc()
     {
         GameObject temp = Instantiate(zap, transform.position, transform.rotation);
         temp.GetComponent<NetworkObject>().Spawn();
@@ -33,7 +35,7 @@ public class Lightning : NetworkBehaviour
         }
         else
         {
-            InstantiateZap();
+            InstantiateZapClientRpc();
         }
     }
     
