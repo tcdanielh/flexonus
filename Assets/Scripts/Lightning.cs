@@ -14,7 +14,7 @@ public class Lightning : NetworkBehaviour
         
         GameObject temp = Instantiate(zap, transform.position, transform.rotation);
         temp.GetComponent<NetworkObject>().Spawn();
-       // Destroy(transform.gameObject);
+        Destroy(transform.gameObject);
     
     }
     
@@ -23,7 +23,7 @@ public class Lightning : NetworkBehaviour
     {
         GameObject temp = Instantiate(zap, transform.position, transform.rotation);
         temp.GetComponent<NetworkObject>().Spawn();
-       // Destroy(transform.gameObject);
+        Destroy(transform.gameObject);
     
     }
 
@@ -46,7 +46,7 @@ public class Lightning : NetworkBehaviour
             ZapSpawn();
             StartCoroutine(WaitToEnd(1f, zap));
 
-            // Destroy(transform.gameObject);
+             Destroy(transform.gameObject);
 
         }
         if (other.gameObject.name.EndsWith("EffectMesh"))
@@ -54,7 +54,7 @@ public class Lightning : NetworkBehaviour
             ZapSpawn();
             StartCoroutine(WaitToEnd(1f, zap));
             //
-            //  Destroy(transform.gameObject);
+             Destroy(transform.gameObject);
 
         }
     }
@@ -66,7 +66,7 @@ public class Lightning : NetworkBehaviour
             ZapSpawn();
             StartCoroutine(WaitToEnd(1f, zap));
 
-            //  Destroy(transform.gameObject);
+             Destroy(transform.gameObject);
 
         }
 
@@ -76,7 +76,7 @@ public class Lightning : NetworkBehaviour
             ZapSpawn();
             StartCoroutine(WaitToEnd(1f, zap));
 
-            // Destroy(transform.gameObject);
+             Destroy(transform.gameObject);
 
         }
     }
@@ -85,6 +85,6 @@ public class Lightning : NetworkBehaviour
     {
         yield return new WaitForSeconds(delayTime);
 
-        // Destroy(transform.gameObject);
+        Destroy(transform.gameObject);
     }
 }
