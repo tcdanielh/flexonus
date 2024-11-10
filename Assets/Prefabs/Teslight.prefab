@@ -306,7 +306,7 @@ MonoBehaviour:
   _targetTransform: {fileID: 6609392422432857447}
   _maxGrabPoints: -1
   _rigidbody: {fileID: 1165837436705814822}
-  _kinematicWhileSelected: 1
+  _kinematicWhileSelected: 0
   _throwWhenUnselected: 1
 --- !u!114 &1641215856885936894
 MonoBehaviour:
@@ -595,7 +595,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 57266813
+  GlobalObjectIdHash: 103976982
   InScenePlacedSourceGlobalObjectIdHash: 1641065026
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
