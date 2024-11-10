@@ -64,7 +64,7 @@ public class Fracture : NetworkBehaviour
                 DisappearCoroutineServerRpc();
             } else
             {
-                Disappear();
+                DisappearCoroutineClientRpc();
             }
         }
     }
@@ -78,11 +78,11 @@ public class Fracture : NetworkBehaviour
             //ShatterObject();
             if (!IsServer)
             {
-                DisappearCoroutineServerRpc();
+                DisappearCoroutineClientRpc();
             }
             else
             {
-                Disappear();
+                DisappearCoroutineClientRpc();
             }
         }
     }
@@ -109,13 +109,14 @@ public class Fracture : NetworkBehaviour
 
 
   
-    void Disappear()
+    [ServerRpc(RequireOwnership = false)]
+    void DisappearCoroutineServerRpc()
     {
         StartCoroutine(DisappearCoroutine());
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    void DisappearCoroutineServerRpc()
+    [ClientRpc(RequireOwnership = false)]
+    void DisappearCoroutineClientRpc()
     {
         StartCoroutine(DisappearCoroutine());
     }
