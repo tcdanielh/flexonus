@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Fracture : NetworkBehaviour
 {
-    public GameObject fracturedObject;
+    public AudioSource soundEarth;
 
     private void Start()
     {
@@ -72,6 +72,7 @@ public class Fracture : NetworkBehaviour
 
     void ShatterObject()
     {
+        soundEarth.Play();
         // Apply forces to each piece of the fractured object
         foreach (Transform piece in this.transform)
         {
@@ -81,7 +82,7 @@ public class Fracture : NetworkBehaviour
             {
                 rb.isKinematic = false;
                 // Apply a random explosion force for a shattering effect
-                Vector3 explosionDir = (piece.transform.position - fracturedObject.transform.position).normalized;
+                Vector3 explosionDir = (piece.transform.position - this.transform.position).normalized;
                 float explosionForce = Random.Range(10f, 50f);
                 rb.AddForce(explosionDir * explosionForce);
                 rb.isKinematic = false;
