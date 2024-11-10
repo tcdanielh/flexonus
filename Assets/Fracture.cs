@@ -56,6 +56,7 @@ public class Fracture : NetworkBehaviour
         if (collision.transform.CompareTag("attack"))
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             ShatterObject();
             Disappear();
         }
@@ -65,6 +66,8 @@ public class Fracture : NetworkBehaviour
         if (collision.transform.CompareTag("attack"))
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+
             ShatterObject();
             Disappear();
         }
