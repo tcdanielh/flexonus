@@ -5,8 +5,10 @@ using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Netcode;
 
-public class Health : MonoBehaviour
+
+public class Health : NetworkBehaviour
 {
     public NetworkVariable<int> hp = new NetworkVariable<int>(100);
 
@@ -25,7 +27,16 @@ public class Health : MonoBehaviour
             {
                 return;
             }
-            TakeDamage(attack.damage);
+
+            if (!IsServer)
+            {
+                TakeDamageServerRpc(attack.damage);
+            }
+            else
+            {
+                TakeDamageClientRpc(attack.damage);
+            }
+            // TakeDamage(attack.damage);
             StartCoroutine(ContinuousDamage(1f, attack.continuousDamage));
         }
     }
@@ -36,7 +47,15 @@ public class Health : MonoBehaviour
             {
                 return;
             }
-            TakeDamage(attack.damage);
+            if (!IsServer)
+            {
+                TakeDamageServerRpc(attack.damage);
+            }
+            else
+            {
+                TakeDamageClientRpc(attack.damage);
+            }
+            // TakeDamage(attack.damage);
             StartCoroutine(ContinuousDamage(1f, attack.continuousDamage));
         }
     }
@@ -46,17 +65,46 @@ public class Health : MonoBehaviour
         while (i > 0)
         {
             yield return new WaitForSeconds(delayTime);
-            TakeDamage(continuousDamage);
+            if (!IsServer)
+            {
+                TakeDamageServerRpc(continuousDamage);
+            }
+            else
+            {
+                TakeDamageClientRpc(continuousDamage);
+            }
+            // TakeDamage(continuousDamage);
             i -= 1;
         }
     }
-    void TakeDamage(int damage){
-        hp.Value = damage;
-        UpdateHealth(hp.Value);
+    // void TakeDamage(int damage){
+    //     hp -= damage;
+    //     UpdateHealth(hp);
+    // }
+    [ServerRpc(RequireOwnership = false)]
+    void TakeDamageServerRpc(int damage)
+    {
+        hp.Value -= damage;
+        UpdateHealthServerRpc(hp.Value);
     }
-    void UpdateHealth(int health){
+    [ClientRpc(RequireOwnership = false)]
+    void TakeDamageClientRpc(int damage)
+    {
+        hp.Value -= damage;
+        UpdateHealthClientRpc(hp.Value);
+    }
+    
+    [ServerRpc(RequireOwnership = false)]
+    void UpdateHealthServerRpc(int health){
         healthBar.fillAmount = (float) health / (float)100;
     }
+    [ClientRpc(RequireOwnership = false)]
+    void UpdateHealthClientRpc(int health){
+        healthBar.fillAmount = (float) health / (float)100;
+    }
+    // void UpdateHealth(int health){
+    //     healthBar.fillAmount = (float) health / (float)100;
+    // }
     void Update(){
         if (hp.Value <= 0) {
             //gameFlowManager.gameOver();
