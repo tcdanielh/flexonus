@@ -25,12 +25,15 @@ public class Fracture : NetworkBehaviour
         foreach (Transform piece in fracturedObject.transform)
         {
             Rigidbody rb = piece.GetComponent<Rigidbody>();
+            
             if (rb != null)
             {
+                rb.isKinematic = false;
                 // Apply a random explosion force for a shattering effect
                 Vector3 explosionDir = (piece.transform.position - fracturedObject.transform.position).normalized;
-                float explosionForce = Random.Range(100f, 500f);
+                float explosionForce = Random.Range(100f, 2000f);
                 rb.AddForce(explosionDir * explosionForce);
+                rb.isKinematic = false;
             }
         }
     }
