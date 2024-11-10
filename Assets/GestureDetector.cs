@@ -7,7 +7,7 @@ using System.IO;
 using Unity.Netcode;
 using UnityEngine.Events;
 
-public class MovementRecognizer : MonoBehaviour
+public class MovementRecognizer : NetworkBehaviour
 {
     public Transform movementSource;
 
@@ -173,12 +173,23 @@ public class MovementRecognizer : MonoBehaviour
                 Destroy(Instantiate(debugCubePrefab, movementSource.position, Quaternion.identity), 3);
         }
     }
-    [ServerRpc]
+    
     private void InstantiateSpell(GameObject spell, Vector3 pos, Quaternion rot)
     {
-        
-        GameObject spellInstance = Instantiate(spell, pos, rot);
-        spellInstance.GetComponent<NetworkObject>().Spawn();
+        if (IsServer)
+        {
+            // Instantiate and spawn logic
+            GameObject spellInstance = Instantiate(spell, pos, rot);
+            NetworkObject networkObject = spellInstance.GetComponent<NetworkObject>();
+            if (networkObject != null)
+            {
+                networkObject.Spawn();
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Not a Server");
+        }
     }
 
     public void FireBallSpawn()
