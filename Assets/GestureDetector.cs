@@ -206,7 +206,7 @@ public class MovementRecognizer : NetworkBehaviour
         if (!IsServer)
         {
             Debug.Log("Client is sending RequestSpellSpawnServerRpc.");
-            RequestInstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
+            InstantiateSpellServerRpc(spells[0], spawnPosition, chestSource.rotation);
         }
         else
         {
