@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class OVRManager : MonoBehaviour
 {
-    private bool onlyOnce = false;
+    public Transform chestPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,18 +15,6 @@ public class OVRManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (onlyOnce) 
-            return;
-        if (OVRInput.GetDown(OVRInput.Button.Two))
-        {
-            NetworkManager.Singleton.StartHost();
-            onlyOnce = true;
-        }
         
-        if (OVRInput.GetDown(OVRInput.Button.One))
-        {
-            NetworkManager.Singleton.StartClient();
-            onlyOnce = true;
-        }
     }
 }

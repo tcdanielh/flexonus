@@ -10,6 +10,7 @@ public class MovementRecognizer : MonoBehaviour
 {
     public Transform movementSource;
 
+    public Transform chestSource;
     // public HandPoseDetector detector;
     public HandType hand;
 
@@ -177,7 +178,9 @@ public class MovementRecognizer : MonoBehaviour
         if (gestureName == "F")
         {
             // spells[0].SetActive(true);
-            GameObject spell = Instantiate(spells[0], movementSource.position, Quaternion.identity);
+            Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
+
+            GameObject spell = Instantiate(spells[0], spawnPosition, chestSource.rotation);
             // spell.transform.SetParent(movementSource);
         } else if (gestureName == "L")
         {
