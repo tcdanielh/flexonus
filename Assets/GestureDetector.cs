@@ -78,6 +78,20 @@ public class MovementRecognizer : NetworkBehaviour
             {
                 isPressed = true;
             }
+            if (isPressed)
+            {
+                if (!drawingAudio.isPlaying)
+                {
+                    drawingAudio.Play();
+                }
+            }
+            else
+            {
+                if (drawingAudio.isPlaying)
+                {
+                    drawingAudio.Stop();
+                }
+            }
         }
         else if (hand == HandType.Right)
         {
@@ -86,22 +100,23 @@ public class MovementRecognizer : NetworkBehaviour
             {
                 isPressed = true;
             }
+            if (isPressed)
+            {
+                if (!drawingAudio.isPlaying)
+                {
+                    drawingAudio.Play();
+                }
+            }
+            else
+            {
+                if (drawingAudio.isPlaying)
+                {
+                    drawingAudio.Stop();
+                }
+            }
         }
 
-        if (isPressed)
-        {
-            if (!drawingAudio.isPlaying)
-            {
-                drawingAudio.Play();
-            }
-        }
-        else
-        {
-            if (drawingAudio.isPlaying)
-            {
-                drawingAudio.Stop();
-            }
-        }
+        
 
         //Start The Movement
         if (!isMoving && isPressed)
