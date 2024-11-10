@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using Oculus.Interaction.Input;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int hp = 100;
+    public NetworkVariable<int> hp = new NetworkVariable<int>(100);
+
+    //public int hp = 100;
     public GameFlowManager gameFlowManager;
     public Image healthBar;
     void Start()
@@ -48,14 +51,14 @@ public class Health : MonoBehaviour
         }
     }
     void TakeDamage(int damage){
-        hp -= damage;
-        UpdateHealth(hp);
+        hp.Value = damage;
+        UpdateHealth(hp.Value);
     }
     void UpdateHealth(int health){
         healthBar.fillAmount = (float) health / (float)100;
     }
     void Update(){
-        if (hp <= 0) {
+        if (hp.Value <= 0) {
             //gameFlowManager.gameOver();
         }
     }
