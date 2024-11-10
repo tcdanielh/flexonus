@@ -278,7 +278,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 672ca22e805c9416c9ca5745ce0bb862, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -584,6 +584,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1724229268782871007, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1890434858251875083, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -623,6 +627,10 @@ PrefabInstance:
     - target: {fileID: 3409353637821638593, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450254582837225824, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3596466100352773128, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
       propertyPath: m_IsKinematic
@@ -798,7 +806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6692732968845351556, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6728560292004112805, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
       propertyPath: m_IsKinematic
@@ -871,6 +879,10 @@ PrefabInstance:
     - target: {fileID: 8431159097796977055, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
       propertyPath: m_IsKinematic
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635991212883058124, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8635991212883058124, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
       propertyPath: m_IsTrigger
