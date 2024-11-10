@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using Oculus.Interaction.Input;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public int hp = 100;
     public GameFlowManager gameFlowManager;
+    public Image healthBar;
     void Start()
     {
         //gameFlowManager = GameObject.Find("GameFlowManager").GetComponent<GameFlowManager>();
     }
 
-    void OnCollisionEnter(Collision collision){
+    void OnTriggerEnter(Collider collision){
         if (collision.transform.tag == "attack"){
             Attack attack = collision.transform.GetComponent<Attack>();
             TakeDamage(attack.damage);
@@ -32,6 +34,10 @@ public class Health : MonoBehaviour
     }
     void TakeDamage(int damage){
         hp -= damage;
+        UpdateHealth(hp);
+    }
+    void UpdateHealth(int health){
+        healthBar.fillAmount = (float) health / (float)100;
     }
     void Update(){
         if (hp <= 0) {
