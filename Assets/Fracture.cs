@@ -57,8 +57,15 @@ public class Fracture : NetworkBehaviour
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider>().enabled = false;
-            ShatterObject();
-            Disappear();
+            //ShatterObject();
+            
+            if (!IsServer)
+            {
+                DisappearCoroutineServerRpc();
+            } else
+            {
+                Disappear();
+            }
         }
     }
     void OnTriggerEnter(Collider collision)
@@ -68,8 +75,15 @@ public class Fracture : NetworkBehaviour
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider>().enabled = false;
 
-            ShatterObject();
-            Disappear();
+            //ShatterObject();
+            if (!IsServer)
+            {
+                DisappearCoroutineServerRpc();
+            }
+            else
+            {
+                Disappear();
+            }
         }
     }
     
@@ -100,6 +114,12 @@ public class Fracture : NetworkBehaviour
         StartCoroutine(DisappearCoroutine());
     }
 
+    [ServerRpc(RequireOwnership = false)]
+    IEnumerator DisappearCoroutineServerRpc() {
+        Destroy(gameObject);
+        yield return new WaitForSeconds(0.1f);
+    
+    }
     IEnumerator DisappearCoroutine()
     {
        
