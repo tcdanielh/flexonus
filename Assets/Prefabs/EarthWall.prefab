@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9159941978490807701}
   - component: {fileID: 1095073055364998897}
   - component: {fileID: 2641921281096979793}
+  - component: {fileID: 1724229268782871007}
   m_Layer: 0
   m_Name: EarthWall
   m_TagString: Untagged
@@ -200,3 +201,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1724229268782871007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6692732968845351556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2cf9c1eacba648f491aff843779c1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fracturedObject: {fileID: 826502801271729447, guid: 11fce6a9eaff44236b7b698e1aaaee6e, type: 3}
