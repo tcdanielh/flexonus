@@ -173,21 +173,34 @@ public class MovementRecognizer : MonoBehaviour
                 Destroy(Instantiate(debugCubePrefab, movementSource.position, Quaternion.identity), 3);
         }
     }
-
+    [ServerRpc]
     private void InstantiateSpell(GameObject spell, Vector3 pos, Quaternion rot)
     {
-        Instantiate(spell, pos, rot);
-        spell.GetComponent<NetworkObject>().Spawn();
+        
+        GameObject spellInstance = Instantiate(spell, pos, rot);
+        spellInstance.GetComponent<NetworkObject>().Spawn();
+    }
+
+    public void FireBallSpawn()
+    {
+        Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
+        InstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
+    }
+    
+    public void LightSpawn()
+    {
+        Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
+        InstantiateSpell(spells[1], spawnPosition, chestSource.rotation);
     }
     public void SpawnSpell(string gestureName)
     {
         Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
         if (gestureName == "F")
         {
-            InstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
+            FireBallSpawn();
         } else if (gestureName == "L")
         {
-            InstantiateSpell(spells[1], spawnPosition, chestSource.rotation);
+            LightSpawn();
         } else if (gestureName == "E")
         {
             
