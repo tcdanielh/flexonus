@@ -69,7 +69,7 @@ public class Fracture : NetworkBehaviour
             StartCoroutine(Disappear());
         }
     }
-
+    
     void ShatterObject()
     {
         soundEarth.Play();
@@ -91,9 +91,11 @@ public class Fracture : NetworkBehaviour
     }
 
 
+    [ServerRpc(RequireOwnership = false)]
     IEnumerator Disappear()
     {
         yield return new WaitForSeconds(4f);
+        
         Destroy(gameObject);
     }
 }
