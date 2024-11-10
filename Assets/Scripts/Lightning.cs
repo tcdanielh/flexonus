@@ -14,7 +14,7 @@ public class Lightning : NetworkBehaviour
         
         GameObject temp = Instantiate(zap, transform.position, transform.rotation);
         temp.GetComponent<NetworkObject>().Spawn();
-        Destroy(transform.gameObject);
+       // Destroy(transform.gameObject);
     
     }
     
@@ -23,7 +23,7 @@ public class Lightning : NetworkBehaviour
     {
         GameObject temp = Instantiate(zap, transform.position, transform.rotation);
         temp.GetComponent<NetworkObject>().Spawn();
-        Destroy(transform.gameObject);
+       // Destroy(transform.gameObject);
     
     }
 
@@ -45,17 +45,17 @@ public class Lightning : NetworkBehaviour
         {
             ZapSpawn();
             StartCoroutine(WaitToEnd(1f, zap));
-            
-            Destroy(transform.gameObject);
-            
+
+            // Destroy(transform.gameObject);
+
         }
         if (other.gameObject.name.EndsWith("EffectMesh"))
         {
             ZapSpawn();
             StartCoroutine(WaitToEnd(1f, zap));
-        
-            Destroy(transform.gameObject);
-            
+            //
+            //  Destroy(transform.gameObject);
+
         }
     }
 
@@ -65,18 +65,18 @@ public class Lightning : NetworkBehaviour
         {
             ZapSpawn();
             StartCoroutine(WaitToEnd(1f, zap));
-            
-            Destroy(transform.gameObject);
-            
+
+            //  Destroy(transform.gameObject);
+
         }
-        
+
         if (other.gameObject.name.EndsWith("EffectMesh"))
         {
 
             ZapSpawn();
             StartCoroutine(WaitToEnd(1f, zap));
-            
-            Destroy(transform.gameObject);
+
+            // Destroy(transform.gameObject);
 
         }
     }
@@ -84,7 +84,7 @@ public class Lightning : NetworkBehaviour
     IEnumerator WaitToEnd(float delayTime, GameObject zap)
     {
         yield return new WaitForSeconds(delayTime);
-        Destroy(zap);
-        Destroy(transform.gameObject);
+
+        // Destroy(transform.gameObject);
     }
 }
