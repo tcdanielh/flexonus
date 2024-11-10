@@ -110,7 +110,7 @@ public class Health : NetworkBehaviour
     //     healthBar.fillAmount = (float) health / (float)100;
     // }
     void Update(){
-        if (hp.Value <= 0) {
+        if (hp.Value >= 0) {
             healthBar.fillAmount = (float)hp.Value / (float)100;
             //gameFlowManager.gameOver();
         }
