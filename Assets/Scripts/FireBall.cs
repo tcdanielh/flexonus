@@ -6,9 +6,9 @@ public class FireBall : MonoBehaviour
 {
     public GameObject FireCracker;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.tag == "hittable"){
+        if (other.transform.tag == "hittable"){
             GameObject fireCracker = Instantiate(FireCracker, transform.position, transform.rotation);
 
             //fireCracker.GetComponent<Rigidbody>().velocity = transform.gameObject.GetComponent<Rigidbody>().velocity;

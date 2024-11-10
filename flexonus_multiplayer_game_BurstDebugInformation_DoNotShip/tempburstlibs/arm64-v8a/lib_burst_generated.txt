@@ -19,7 +19,6 @@ Library: /Users/yeonwooson/Desktop/flexonus/Temp/BurstOutput/tempburstlibs/arm64
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
 --assembly-defines=Newtonsoft.Json;
---assembly-defines=Oculus.AvatarSDK2;
 --assembly-defines=Oculus.Interaction;
 --assembly-defines=Oculus.Interaction.OVR;
 --assembly-defines=Oculus.Platform;
@@ -29,8 +28,6 @@ Library: /Users/yeonwooson/Desktop/flexonus/Temp/BurstOutput/tempburstlibs/arm64
 --assembly-defines=System.Data;
 --assembly-defines=System;
 --assembly-defines=System.Drawing;
---assembly-defines=System.IO.Compression;
---assembly-defines=System.IO.Compression.FileSystem;
 --assembly-defines=System.Numerics;
 --assembly-defines=System.Runtime.Serialization;
 --assembly-defines=System.Xml;
