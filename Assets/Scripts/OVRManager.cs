@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class OVRManager : MonoBehaviour
+public class OVRManager : NetworkBehaviour
 {
     public Transform chestPos;
 
@@ -25,8 +25,15 @@ public class OVRManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            RequestSpellSpawnServerRpc();
-
+            if (!IsServer)
+            {
+                RequestSpellSpawnServerRpc();
+            }
+            else
+            {
+                move.FireBallSpawn();    
+            }
+            
         }       
     }
 }

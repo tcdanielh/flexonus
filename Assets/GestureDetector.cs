@@ -176,20 +176,15 @@ public class MovementRecognizer : NetworkBehaviour
     
     private void InstantiateSpell(GameObject spell, Vector3 pos, Quaternion rot)
     {
-        if (IsServer)
+        
+        // Instantiate and spawn logic
+        GameObject spellInstance = Instantiate(spell, pos, rot);
+        NetworkObject networkObject = spellInstance.GetComponent<NetworkObject>();
+        if (networkObject != null)
         {
-            // Instantiate and spawn logic
-            GameObject spellInstance = Instantiate(spell, pos, rot);
-            NetworkObject networkObject = spellInstance.GetComponent<NetworkObject>();
-            if (networkObject != null)
-            {
-                networkObject.Spawn();
-            }
+            networkObject.Spawn();
         }
-        else
-        {
-            Debug.LogWarning("Not a Server");
-        }
+    
     }
 
     public void FireBallSpawn()
