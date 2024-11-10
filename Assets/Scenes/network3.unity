@@ -10008,6 +10008,10 @@ PrefabInstance:
       propertyPath: Labels
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 2296141232796561049, guid: cee191920b8eb41b0960b1082a393a3e, type: 3}
+      propertyPath: Colliders
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5456522116536683058, guid: cee191920b8eb41b0960b1082a393a3e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10609,6 +10613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ovrManagerPrefab: {fileID: 8641745006471548291, guid: f3873f4580a3a48ffab62ca1f6f04bf6, type: 3}
+  move: {fileID: 0}
 --- !u!1001 &991755174
 PrefabInstance:
   m_ObjectHideFlags: 0
