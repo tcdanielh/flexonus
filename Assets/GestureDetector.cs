@@ -174,6 +174,19 @@ public class MovementRecognizer : NetworkBehaviour
         }
     }
     
+    [ServerRpc(RequireOwnership = false)]
+    private void InstantiateSpellServerRpc(int spelli, Vector3 pos, Quaternion rot)
+    {
+        
+        // Instantiate and spawn logic
+        GameObject spellInstance = Instantiate(spells[spelli], pos, rot);
+        NetworkObject networkObject = spellInstance.GetComponent<NetworkObject>();
+        if (networkObject != null)
+        {
+            networkObject.Spawn();
+        }
+    
+    }
     private void InstantiateSpell(GameObject spell, Vector3 pos, Quaternion rot)
     {
         
@@ -190,7 +203,17 @@ public class MovementRecognizer : NetworkBehaviour
     public void FireBallSpawn()
     {
         Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
-        InstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
+        if (!IsServer)
+        {
+            Debug.Log("Client is sending RequestSpellSpawnServerRpc.");
+            InstantiateSpellServerRpc(0, spawnPosition, chestSource.rotation);
+        }
+        else
+        {
+            Debug.Log("Server is executing FireBallSpawnClientRpc.");
+            InstantiateSpell(spells[0], spawnPosition, chestSource.rotation);
+        }
+        
     }
     
     public void LightSpawn()
