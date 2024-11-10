@@ -14,7 +14,7 @@ public class Health : NetworkBehaviour
 
     //public int hp = 100;
     public GameFlowManager gameFlowManager;
-    public NetworkVariable<Image> healthBar;
+    public Image healthBar;
     void Start()
     {
         //gameFlowManager = GameObject.Find("GameFlowManager").GetComponent<GameFlowManager>();
@@ -85,22 +85,26 @@ public class Health : NetworkBehaviour
     void TakeDamageServerRpc(int damage)
     {
         hp.Value -= damage;
-        UpdateHealthServerRpc(hp.Value);
+        UpdateHealth(hp.Value);
     }
     [ClientRpc(RequireOwnership = false)]
     void TakeDamageClientRpc(int damage)
     {
         hp.Value -= damage;
-        UpdateHealthClientRpc(hp.Value);
+        UpdateHealth(hp.Value);
     }
     
     [ServerRpc(RequireOwnership = false)]
     void UpdateHealthServerRpc(int health){
-        healthBar.Value.fillAmount = (float) health / (float)100;
+        healthBar.fillAmount = (float) health / (float)100;
     }
     [ClientRpc(RequireOwnership = false)]
     void UpdateHealthClientRpc(int health){
-        healthBar.Value.fillAmount = (float) health / (float)100;
+        healthBar.fillAmount = (float) health / (float)100;
+    }
+    void UpdateHealth(int health)
+    {
+        healthBar.fillAmount = (float)health / (float)100;
     }
     // void UpdateHealth(int health){
     //     healthBar.fillAmount = (float) health / (float)100;
