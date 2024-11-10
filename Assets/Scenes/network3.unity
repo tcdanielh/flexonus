@@ -10506,11 +10506,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 721107410376066159, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 986820831}
+      insertIndex: 1
+      addedObject: {fileID: 986820834}
     - targetCorrespondingSourceObject: {fileID: 721107410376066159, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 986820834}
+      addedObject: {fileID: 986820831}
   m_SourcePrefab: {fileID: 100100000, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
 --- !u!1 &986820830 stripped
 GameObject:
@@ -14391,8 +14391,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1325240272}
-  - component: {fileID: 1325240271}
   - component: {fileID: 1325240273}
+  - component: {fileID: 1325240271}
   m_Layer: 0
   m_Name: Debug
   m_TagString: Untagged
