@@ -9,6 +9,8 @@ using UnityEngine.Events;
 
 public class MovementRecognizer : NetworkBehaviour
 {
+    public AudioSource drawingAudio;
+    public AudioSource recognizedAudio;
     public Transform movementSource;
 
     public Transform chestSource;
@@ -83,6 +85,21 @@ public class MovementRecognizer : NetworkBehaviour
             if (rightTriggerValue > 0.5f)
             {
                 isPressed = true;
+            }
+        }
+
+        if (isPressed)
+        {
+            if (!drawingAudio.isPlaying)
+            {
+                drawingAudio.Play();
+            }
+        }
+        else
+        {
+            if (drawingAudio.isPlaying)
+            {
+                drawingAudio.Stop();
             }
         }
 
@@ -257,12 +274,15 @@ public class MovementRecognizer : NetworkBehaviour
         Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
         if (gestureName == "F")
         {
+            recognizedAudio.Play();
             FireBallSpawn();
         } else if (gestureName == "L")
         {
+            recognizedAudio.Play();
             LightSpawn();
         } else if (gestureName == "E")
         {
+            recognizedAudio.Play();
             WallSpawn();
         } else if (gestureName == "N")
         {
