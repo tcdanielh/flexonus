@@ -18,6 +18,10 @@ public class Health : MonoBehaviour
     void OnTriggerEnter(Collider collision){
         if (collision.transform.tag == "attack"){
             Attack attack = collision.transform.GetComponent<Attack>();
+            if (attack == null)
+            {
+                return;
+            }
             TakeDamage(attack.damage);
             StartCoroutine(ContinuousDamage(1f, attack.continuousDamage));
         }
