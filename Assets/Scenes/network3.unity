@@ -10530,7 +10530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSource: {fileID: 866946964}
-  chestSource: {fileID: 279957173}
+  chestSource: {fileID: 0}
   hand: 0
   newPositionThresholdDistance: 0.001
   debugCubePrefab: {fileID: 8641518123495469670, guid: 62b697ad6a8a54170a71b4548f544bb6, type: 3}
