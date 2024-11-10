@@ -41,17 +41,7 @@ public class FireBall : NetworkBehaviour
         }
         
     }
-    
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.transform.tag == "hittable" || other.gameObject.name.EndsWith("EffectMesh"))
-        {
-            FireBoomSpawn();
-        }
 
-        
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "hittable" || other.gameObject.name.EndsWith("EffectMesh"))
@@ -59,5 +49,13 @@ public class FireBall : NetworkBehaviour
             FireBoomSpawn();
         }
         
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.tag == "hittable" || other.gameObject.name.EndsWith("EffectMesh"))
+        {
+            FireBoomSpawn();
+        }
     }
 }

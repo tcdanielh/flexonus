@@ -227,7 +227,7 @@ public class MovementRecognizer : NetworkBehaviour
         }
         else
         {
-            Debug.Log("Server is executing FireBallSpawnClientRpc.");
+            Debug.Log("Server is executing ZapSpawnClientRpc.");
             InstantiateSpell(spells[1], spawnPosition, chestSource.rotation);
         }
     }

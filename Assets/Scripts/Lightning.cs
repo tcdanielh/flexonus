@@ -1,21 +1,82 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class Lightning : MonoBehaviour
+public class Lightning : NetworkBehaviour
 {
-    public GameObject Zap;
-    GameObject zap;
-    void OnTriggerEnter(UnityEngine.Collider other)
+    public GameObject zap;
+    
+    [ServerRpc(RequireOwnership = false)]
+    private void InstantiateZapServerRpc()
+    {
+        
+        GameObject temp = Instantiate(zap, transform.position, transform.rotation);
+        temp.GetComponent<NetworkObject>().Spawn();
+        Destroy(transform.gameObject);
+    
+    }
+    private void InstantiateZap()
+    {
+        
+        GameObject temp = Instantiate(zap, transform.position, transform.rotation);
+        temp.GetComponent<NetworkObject>().Spawn();
+        Destroy(transform.gameObject);
+    
+    }
+
+    public void ZapSpawn()
+    {
+        
+        if (!IsServer)
+        {
+            
+            InstantiateZapServerRpc();
+        }
+        else
+        {
+            
+            InstantiateZap();
+        }
+        
+    }
+    
+    void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("hittable"))
         {
-            zap = Instantiate(Zap, transform.position, Quaternion.Euler(new Vector3(0,0,0)));
             StartCoroutine(WaitToEnd(1f, zap));
-            Destroy(transform.parent.GetChild(0).gameObject);
-            Destroy(transform.parent.GetChild(1).gameObject);
+            Destroy(transform.gameObject);
+            ZapSpawn();
+        }
+        if (other.gameObject.name.EndsWith("EffectMesh"))
+        {
+        
+            StartCoroutine(WaitToEnd(1f, zap));
+            Destroy(transform.gameObject);
+            
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.CompareTag("hittable"))
+        {
+            StartCoroutine(WaitToEnd(1f, zap));
+            Destroy(transform.gameObject);
+            ZapSpawn();
+        }
+        
+        if (other.gameObject.name.EndsWith("EffectMesh"))
+        {
+        
+            StartCoroutine(WaitToEnd(1f, zap));
+            Destroy(transform.gameObject);
+
+        }
+    }
+
     IEnumerator WaitToEnd(float delayTime, GameObject zap)
     {
         yield return new WaitForSeconds(delayTime);
