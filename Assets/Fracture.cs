@@ -16,6 +16,16 @@ public class Fracture : NetworkBehaviour
             StartCoroutine(Disappear());
         }
     }
+    void OnTriggerEnter(Collider collision)
+    {
+        if (collision.transform.CompareTag("attack"))
+        {
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+            fracturedObject.SetActive(true);
+            ShatterObject(fracturedObject);
+            StartCoroutine(Disappear());
+        }
+    }
 
     void ShatterObject(GameObject fracturedObject)
     {
