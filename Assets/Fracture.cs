@@ -115,15 +115,14 @@ public class Fracture : NetworkBehaviour
     }
 
     [ServerRpc(RequireOwnership = false)]
-    IEnumerator DisappearCoroutineServerRpc() {
-        Destroy(gameObject);
-        yield return new WaitForSeconds(0.1f);
-    
+    void DisappearCoroutineServerRpc()
+    {
+        StartCoroutine(DisappearCoroutine());
     }
+    
     IEnumerator DisappearCoroutine()
     {
        
-        
         Destroy(gameObject);
         yield return new WaitForSeconds(0.1f);
     }
