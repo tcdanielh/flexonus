@@ -15131,9 +15131,6 @@ PrefabInstance:
       addedObject: {fileID: 986820834}
     - targetCorrespondingSourceObject: {fileID: 721107410376066159, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 986820831}
-    - targetCorrespondingSourceObject: {fileID: 721107410376066159, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 986820836}
     - targetCorrespondingSourceObject: {fileID: 721107410376066159, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
       insertIndex: -1
@@ -15144,48 +15141,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 721107410376066159, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
   m_PrefabInstance: {fileID: 986820829}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &986820831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 986820830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 223e397b5996048bbaf26b9d7f4fbeaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawingAudio: {fileID: 986820836}
-  recognizedAudio: {fileID: 986820835}
-  movementSource: {fileID: 866946964}
-  chestSource: {fileID: 279957173}
-  hand: 0
-  newPositionThresholdDistance: 0.001
-  debugCubePrefab: {fileID: 8641518123495469670, guid: 62b697ad6a8a54170a71b4548f544bb6, type: 3}
-  creationMode: 0
-  newGestureName: 
-  recognitionThreshold: 0.9
-  recognitionDelay: 1.5
-  OnRecognized:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 986820831}
-        m_TargetAssemblyTypeName: MovementRecognizer, Assembly-CSharp
-        m_MethodName: SpawnSpell
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  spells:
-  - {fileID: 5953953219192718213, guid: ad8613917982a46fca9379133fe07910, type: 3}
-  - {fileID: 3756323465628659073, guid: 061967104e8994818bb2fb1aa33bfb24, type: 3}
-  - {fileID: 6692732968845351556, guid: 6bb239d4560b344e4b02bb5f3912fe79, type: 3}
 --- !u!114 &986820832 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 865022190635526368, guid: 7e69717ec923d436686b79bb97f58a19, type: 3}
