@@ -215,17 +215,37 @@ public class MovementRecognizer : NetworkBehaviour
         }
         
     }
+  
     
     public void LightSpawn()
     {
         Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
-        InstantiateSpell(spells[1], spawnPosition, chestSource.rotation);
+        if (!IsServer)
+        {
+            Debug.Log("Client is sending RequestSpellSpawnServerRpc.");
+            InstantiateSpellServerRpc(1, spawnPosition, chestSource.rotation);
+        }
+        else
+        {
+            Debug.Log("Server is executing FireBallSpawnClientRpc.");
+            InstantiateSpell(spells[1], spawnPosition, chestSource.rotation);
+        }
     }
     public void WallSpawn()
     {
         Vector3 spawnPosition = chestSource.forward * 0.3f + chestSource.transform.position;
         spawnPosition.y = spawnPosition.y / 2.4f;
-        InstantiateSpell(spells[2], spawnPosition, chestSource.rotation);
+        
+        if (!IsServer)
+        {
+            Debug.Log("Client is sending RequestSpellSpawnServerRpc.");
+            InstantiateSpellServerRpc(2, spawnPosition, chestSource.rotation);
+        }
+        else
+        {
+            Debug.Log("Server is executing FireBallSpawnClientRpc.");
+            InstantiateSpell(spells[2], spawnPosition, chestSource.rotation);
+        }
     }
     public void SpawnSpell(string gestureName)
     {

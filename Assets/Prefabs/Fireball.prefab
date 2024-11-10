@@ -9698,8 +9698,8 @@ GameObject:
   - component: {fileID: 1008977684627234311}
   - component: {fileID: 1493768907594864417}
   - component: {fileID: 299766477699577637}
-  - component: {fileID: 7338773581778316599}
   - component: {fileID: 6400912271755105854}
+  - component: {fileID: 7338773581778316599}
   - component: {fileID: 4395738965296986228}
   - component: {fileID: 4241489001539028472}
   m_Layer: 0
@@ -14600,19 +14600,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   continuousDamage: 5
---- !u!114 &7338773581778316599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5953953219192718213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa45b41d69df145ce980e0364b394a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FireCracker: {fileID: 1000014171092238, guid: e5afdf3b2a713724d9f02e11764c80e5, type: 3}
 --- !u!114 &6400912271755105854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14634,6 +14621,19 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &7338773581778316599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5953953219192718213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa45b41d69df145ce980e0364b394a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FireCracker: {fileID: 1000014171092238, guid: e5afdf3b2a713724d9f02e11764c80e5, type: 3}
 --- !u!114 &4395738965296986228
 MonoBehaviour:
   m_ObjectHideFlags: 0
