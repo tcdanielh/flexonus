@@ -26,6 +26,17 @@ public class Health : MonoBehaviour
             StartCoroutine(ContinuousDamage(1f, attack.continuousDamage));
         }
     }
+    void OnCollisionEnter(Collision collision){
+        if (collision.transform.tag == "attack"){
+            Attack attack = collision.transform.GetComponent<Attack>();
+            if (attack == null)
+            {
+                return;
+            }
+            TakeDamage(attack.damage);
+            StartCoroutine(ContinuousDamage(1f, attack.continuousDamage));
+        }
+    }
     IEnumerator ContinuousDamage(float delayTime, int continuousDamage)
     {
         int i = 3;
